@@ -1,0 +1,51 @@
+quiz = [
+    {
+        "question": "What is the capital of India?",
+        "options": ["Sydney", "Melbourne", "New delhi", "Brisbane"],
+        "answer": "New delhi"
+    },
+    {
+        "question": "What is the capital of Japan?",
+        "options": ["Tokyo", "Osaka", "Nagoya", "Yokohama"],
+        "answer": "Tokyo"
+    },
+    {
+        "question": "How many islands does the Philippines have?",
+        "options": ["7100", "710", "710", "71 islands"],
+        "answer": "7100"
+    }
+]
+
+# Initialize score
+score = 0
+
+# Iterate through the quiz
+for question in quiz:
+    # Print question
+    print(question["question"])
+
+    # Print options
+    for i, option in enumerate(question["options"]):
+        print(f"{i + 1}. {option}")
+
+    # Get user input
+    user_input = input("Enter your answer (number): ")
+
+    # Check if user input is correct
+    if user_input.isdigit() and int(user_input) - 1 in range(len(question["options"])):
+        option_index = int(user_input) - 1
+        option_answer = question["options"][option_index]
+
+        if option_answer.lower() == question["answer"].lower():
+            score += 1
+            print("Correct answer!")
+        else:
+            print(f"Wrong answer. The correct answer is {question['answer']}.")
+
+    # If user input is not a valid number
+    else:
+        print("Invalid input. Please enter a number corresponding to the options.")
+        
+print(f"You got {score} out of {len(quiz)} questions correct.")
+print("congratulations ")
+
